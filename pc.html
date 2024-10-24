@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" href="ico.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hentai Heroes</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center; /* Центрирует по горизонтали */
+        align-items: center; /* Центрирует по вертикали */
+        height: 90vh; /* Задает высоту контейнера */
+        margin: 0; /* Убирает отступы по умолчанию */
+    }
+
+    /* Устанавливаем видео на фон */
+    #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        z-index: -1; /* Видео будет на заднем плане */
+        object-fit: cover; /* Масштабируем видео, чтобы оно занимало весь экран */
+    }
+
+    /* Стили для контента */
+    .content {
+        position: relative;
+        z-index: 1; /* Контент будет поверх видео */
+        color: white;
+        text-align: center;
+        width: 65%;
+        height: 400px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4); /* Большая и рассеянная тень */
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-top: 30px;
+        font-family: "Roboto", sans-serif;
+        color: rgb(255, 105, 180);
+        -webkit-text-stroke: 2px #000000; /* Обводка текста */
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6); /* Увеличенная мягкая тень */
+        display: inline-block; /* Чтобы анимация работала корректно */
+        animation: pulse 2s infinite; /* Анимация пульсации */
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1); /* Исходный размер */
+        }
+        50% {
+            transform: scale(1.1); /* Увеличение до 1.1 раз */
+        }
+    }
+
+    .butt {
+        padding-top: 50px;
+    }
+
+    button {
+        width: 200px;
+        height: 100px;
+        margin-right: 80px;
+        border-radius: 10px; /* Увеличиваем радиус скругления для мягкости */
+        background-color: rgb(255, 105, 180); /* Мягкий розовый цвет */
+        font-size: 32px;
+        font-family: "Roboto", sans-serif;
+        border: 2px solid rgba(255, 193, 203, 0.8); /* Полупрозрачный бордер для легкости */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Увеличенная мягкая тень */
+        cursor: pointer; /* Указатель при наведении */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Плавный переход */
+    }
+
+    /* Эффект при наведении */
+    button:hover {
+        transform: translateY(-5px); /* Легкое поднятие при наведении */
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5); /* Более интенсивная тень при наведении */
+        background-color: rgb(255, 150, 220); /* Немного более насыщенный цвет при наведении */
+    }
+
+    /* Эффект при нажатии */
+    button:active {
+        transform: translateY(2px); /* Легкое опускание при нажатии */
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Уменьшение тени при нажатии */
+    }
+</style>
+<body>
+
+    <!-- Видео для фона -->
+    <video autoplay muted loop id="background-video">
+        <source src="1022.mp4" type="video/mp4">
+        Ваш браузер не поддерживает HTML5 видео.
+    </video>
+
+    <!-- Контент сайта -->
+    <div class="content">
+        <h1 id="question">READY TO CUM IN 30 SECONDS?</h1>
+        <div class="butt">
+            <button class="b1" onclick="answer('yes')">Yes</button>
+            <button class="b2" onclick="answer('no')">No</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "WHAT BODY SHAPE DO YOU PREFER?",
+                options: ["Curvy", "Slim"]
+            },
+            {
+                question: "WHAT TYPE OF BREASTS DO YOU PREFER?",
+                options: ["Large", "Small"]
+            },
+            {
+                question: "WHAT HAIRSTYLE DO YOU LIKE?",
+                options: ["Long hair", "Short hair"]
+            },
+            {
+                question: "DO YOU PREFER A DOMINANT OR SUBMISSIVE CHARACTER?",
+                options: ["Dominant", "Submissive"]
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function answer(response) {
+            // Здесь можно обработать ответ пользователя
+            console.log(`User selected: ${response}`);
+
+            // Переход к следующему вопросу
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                // Обновление вопроса и кнопок
+                updateQuestion();
+            } else {
+                // Завершение опроса
+                window.open('https://t.aagm.link/64ot2m5r28?url_id=0&aff_id=329607&offer_id=6562&bo=3511,3512,3521,3522&aff_sub5=SF_006OG000004lmDN');
+            }
+        }
+
+        function updateQuestion() {
+            document.getElementById('question').innerText = questions[currentQuestion].question;
+            document.querySelector('.b1').innerText = questions[currentQuestion].options[0];
+            document.querySelector('.b2').innerText = questions[currentQuestion].options[1];
+        }
+    </script>
+
+</body>
+</html>

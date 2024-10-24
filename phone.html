@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" href="ico.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hentai Heroes</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        margin: 0;
+        overflow: hidden; /* Убираем прокрутку */
+    }
+
+    #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Сохраняет пропорции видео */
+        z-index: -1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: center;
+        width: 60%; /* Уменьшение ширины контейнера */
+        max-width: 450px; /* Ограничиваем максимальную ширину */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5); /* Фон для лучшей читабельности */
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-top: 30px;
+        font-family: "Roboto", sans-serif;
+        color: rgb(255, 105, 180);
+        -webkit-text-stroke: 2px #000000;
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+        display: inline-block;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    .butt {
+        padding-top: 50px;
+    }
+
+    button {
+        width: 200px;
+        height: 100px;
+        margin-right: 40px;
+        border-radius: 10px;
+        background-color: rgb(255, 105, 180);
+        font-size: 28px;
+        font-family: "Roboto", sans-serif;
+        border: 2px solid rgba(255, 193, 203, 0.8);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
+        background-color: rgb(255, 150, 220);
+    }
+
+    button:active {
+        transform: translateY(2px);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Адаптация под мобильные устройства */
+    @media screen and (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+            margin-top: 20px;
+            -webkit-text-stroke: 1px #000000;
+        }
+
+        .content {
+            width: 80%;
+        }
+
+        button {
+            width: 150px;
+            height: 100px;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .butt {
+            padding-top: 30px;
+        }
+    }
+
+    /* Для экранов еще меньше */
+    @media screen and (max-width: 480px) {
+        h1 {
+            font-size: 1.8em;
+            margin-top: 15px;
+        }
+
+.butt {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 20px; /* Adds space between the buttons */
+}
+
+button {
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: rgb(255, 105, 180);
+    font-size: 28px;
+    font-family: "Roboto", sans-serif;
+    border: 2px solid rgba(255, 193, 203, 0.8);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+</style>
+<body>
+
+    <video autoplay muted loop id="background-video">
+        <source src="1022phone.mp4" type="video/mp4">
+        Ваш браузер не поддерживает HTML5 видео.
+    </video>
+
+    <div class="content">
+        <h1 id="question">READY TO CUM IN 30 SECONDS?</h1>
+        <div class="butt">
+            <button class="b1" onclick="answer('yes')">Yes</button>
+            <button class="b2" onclick="answer('no')">No</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "WHAT BODY SHAPE DO YOU PREFER?",
+                options: ["Curvy", "Slim"]
+            },
+            {
+                question: "WHAT TYPE OF BREASTS DO YOU PREFER?",
+                options: ["Large", "Small"]
+            },
+            {
+                question: "WHAT HAIRSTYLE DO YOU LIKE?",
+                options: ["Long hair", "Short hair"]
+            },
+            {
+                question: "DO YOU PREFER A DOMINANT OR SUBMISSIVE CHARACTER?",
+                options: ["Dominant", "Submissive"]
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function answer(response) {
+            console.log(`User selected: ${response}`);
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                updateQuestion();
+            } else {
+                window.open('https://t.aagm.link/64ot2m5r28?url_id=0&aff_id=329607&offer_id=6562&bo=3511,3512,3521,3522&aff_sub5=SF_006OG000004lmDN');
+            }
+        }
+
+        function updateQuestion() {
+            document.getElementById('question').innerText = questions[currentQuestion].question;
+            document.querySelector('.b1').innerText = questions[currentQuestion].options[0];
+            document.querySelector('.b2').innerText = questions[currentQuestion].options[1];
+        }
+    </script>
+
+</body>
+</html>

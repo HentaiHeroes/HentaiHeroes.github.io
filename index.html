@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Функция для определения устройства
+        function redirectToPage() {
+          // Проверяем, используется ли мобильное устройство
+          if (/Mobi|Android/i.test(navigator.userAgent)) {
+            // Если это мобильное устройство, перенаправляем на мобильную страницу
+            window.location.href = "-phone.html"; // Замените на URL вашей мобильной страницы
+          } else {
+            // Если это ПК, перенаправляем на десктопную страницу
+            window.location.href = "pc.html"; // Замените на URL вашей десктопной страницы
+          }
+        }
+      
+        // Вызываем функцию при загрузке страницы
+        window.onload = redirectToPage;
+      </script>
+      
+</body>
+</html>
