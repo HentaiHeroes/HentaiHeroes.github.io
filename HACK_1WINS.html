@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+    }
+
+
+    .custom-loader {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 8px solid;
+        border-color: #0aff16 #0000;
+        animation: s1 1s linear infinite;
+        overflow: hidden;
+    }
+
+    .custom-loader::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: black;
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0) inset; /* No inner shadow initially */
+        transition: box-shadow 0.5s ease; /* Add a transition for a smooth effect */
+    }
+
+    .custom-loader.shadow::before {
+        box-shadow: 0 0 5px 0px rgba(0, 255, 0, 0.5) inset; /* Add inner shadow after the rotation stops */
+    }
+
+    .custom-loader.shadow {
+        box-shadow: 0 0 10px 0px rgba(0, 255, 0, 0.5); /* Add outer shadow after the rotation stops */
+    }
+
+    @keyframes s1 {
+        to {
+            transform: rotate(1turn);
+        }
+    }
+
+    .lh {
+        color: white;
+        font-size: 35px;
+        font-weight:15px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        position: absolute;
+        top: 20%;
+    }
+
+    .tg {
+        color: white;
+        font-size: 20px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        position: absolute;
+        top: 70%;
+    }
+    #replacementText{
+        font-size: 30px;
+    }
+
+    .text {
+        color: white;
+        font-size: 20px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        position: absolute;
+        top: 47.5%;
+        display: none;
+    }
+
+    .loader-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.hidden {
+    display: none;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="lh"><b>LET'S HACK</b></div>
+        <div class="custom-loader" id="loader"></div>
+        <div class="loader-content">Подключение</div>
+        <div class="text" id="replacementText"><b>x5.48</b></div>
+        <div class="tg"><b>LUCKY JET HACK</b></div>
+    </div>
+
+    <script>
+var loader = document.getElementById('loader');
+var replacementText = document.getElementById('replacementText');
+var loaderContent = document.querySelector('.loader-content');
+var rotationCount = 0;
+
+loader.addEventListener('animationiteration', function () {
+    rotationCount++;
+
+    if (rotationCount === 6) {
+        loader.style.borderColor = '#0aff16';
+        replacementText.style.display = 'block';
+        loader.style.animation = 'none';
+
+        replacementText.innerHTML = '<b>x5.48</b>';
+        
+        loaderContent.innerHTML = 'Подключение';
+
+        // Add the shadow class to both the loader and the inner circle after the animation stops
+        loader.classList.add('shadow');
+
+        // Set a timeout to hide the text after a short delay
+        setTimeout(function () {
+            loaderContent.classList.add('hidden'); // Скрыть текст "Подключение"
+        }, 10); // Подходящая задержка (в миллисекундах), подберите под свои нужды
+    }
+});
+    </script>
+    
+</body>
+</html>
