@@ -29,22 +29,19 @@
         font-size: 35px;
         font-weight: 15px;
         font-family: 'IBM Plex Sans', sans-serif;
-        margin-bottom: 100px; /* Increased space below LET'S HACK */
+        margin-bottom: 100px;
     }
 
     .tg {
         color: white;
         font-size: 20px;
         font-family: 'IBM Plex Sans', sans-serif;
-        margin-top: 60px; /* Increased space above LUCKY JET HACK */
-    }
-
-    #replacementText {
-        font-size: 30px;
+        margin-top: 60px;
     }
 
     .input-container {
-        margin: 20px 0; /* Space around the input field */
+        position: relative; /* Allows absolute positioning of the warning text */
+        margin: 20px 0;
     }
 
     input {
@@ -57,7 +54,21 @@
         border-radius: 5px;
         text-align: center;
         font-family: 'IBM Plex Sans', sans-serif;
-        margin-bottom: 50px;
+    }
+
+    #replacementText {
+        color: red;
+        width: 300px;
+        padding-top: 20px;
+        font-size: 16px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        position: absolute;
+        top: 100%; /* Position directly below the input */
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 5px; /* Small space between input and text */
+        display: none; /* Initially hidden */
+        text-align: center;
     }
 </style>
 <body>
@@ -65,8 +76,25 @@
         <div class="lh"><b>LET'S HACK</b></div>
         <div class="input-container">
             <input type="text" id="textInput" placeholder="Enter ID">
+            <div id="replacementText">Your account is not registered with promo code HACKWINS</div>
         </div>
         <div class="tg"><b>LUCKY JET HACK</b></div>
     </div>
+
+    <script>
+        document.getElementById('textInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                const inputText = event.target.value;
+                const warningText = document.getElementById('replacementText');
+
+                if (inputText !== 'HACKWINS') {
+                    warningText.style.display = 'block'; // Show the warning text in red
+                } else {
+                    warningText.style.display = 'none'; // Hide the warning if correct
+                    alert("Promo code accepted!"); // Optional success message
+                }
+            }
+        });
+    </script>
 </body>
 </html>
