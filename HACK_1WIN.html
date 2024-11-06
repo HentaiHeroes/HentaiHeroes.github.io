@@ -172,8 +172,8 @@
     <div class="container" id="mainContent">
         <div class="lh"><b>LET'S HACK</b></div>
         <div class="input-container">
-            <input type="text" id="textInput" placeholder="Enter ID" maxlength="8" pattern="\d*">
-            <div id="replacementText">Аккаунт должен быть зарегистрирован попромокоду HACKWIN и иметь не менее 3000 рублей на балансе!</div>
+            <input type="text" id="textInput" placeholder="Enter ID">
+            <div id="replacementText">Ваш аккаунт не зарегистрирован по промокоду HACKWINS</div>
             <div class="processing" id="processingText"></div>
             <div class="dots" id="dotsContainer" style="display: none;">
                 <div class="dot"></div>
@@ -205,16 +205,6 @@
                 const warningText = document.getElementById('replacementText');
                 const processingText = document.getElementById('processingText');
                 const dotsContainer = document.getElementById('dotsContainer');
-
-                // Check if input is 8 digits
-                if (inputText.length !== 8 || !/^\d{8}$/.test(inputText)) {
-                    warningText.style.display = 'block';
-                    processingText.style.display = 'none'; // Hide processing text
-                    dotsContainer.style.display = 'none'; // Hide dots animation
-                    return;
-                } else {
-                    warningText.style.display = 'none'; // Hide warning if valid
-                }
 
                 // Show processing text and dots
                 processingText.style.display = 'block';
