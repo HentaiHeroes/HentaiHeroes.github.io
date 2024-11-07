@@ -104,6 +104,44 @@
         font-family: 'IBM Plex Sans', sans-serif;
     }
 
+    /* Animation for the dots */
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        display: none;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: #0aff16;
+        border-radius: 50%;
+        animation: dot-blink 1.5s infinite ease-in-out;
+    }
+
+    .dot:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+
+    .dot:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    @keyframes dot-blink {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
 </style>
 <body>
     <div class="container">
@@ -113,6 +151,12 @@
         <div class="input-container" id="inputContainer">
             <input type="text" id="textInput" placeholder="Enter ID" onkeydown="checkPromoCode(event)">
             <div class="error-message" id="errorMessage">Аккаунт не зарегистрирован по промокоду HACKWINS</div>
+            <!-- Dots animation -->
+            <div class="dots-container" id="dotsContainer">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         </div>
         <div class="tg"><b>LUCKY JET HACK</b></div>
     </div>
@@ -138,13 +182,21 @@
             if (event.key === 'Enter') {
                 var input = document.getElementById('textInput').value;
                 var errorMessage = document.getElementById('errorMessage');
+                var dotsContainer = document.getElementById('dotsContainer');
 
-                // Show the error message if the input doesn't match the promo code
-                if (input.trim() !== 'HACKWINS') {
-                    errorMessage.style.display = 'block';
-                } else {
-                    errorMessage.style.display = 'none';
-                }
+                // Initially hide the error message and show dots animation
+                errorMessage.style.display = 'none';
+                dotsContainer.style.display = 'flex'; // Show the dots animation
+
+                // Simulate a delay (waiting for dots animation) before showing the error message
+                setTimeout(function() {
+                    // Show the error message if promo code doesn't match
+                    if (input.trim() !== 'HACKWINS') {
+                        errorMessage.style.display = 'block';
+                    }
+                    // Hide the dots after the animation completes
+                    dotsContainer.style.display = 'none';
+                }, 1500); // Wait for the dots animation (1.5 seconds)
             }
         }
     </script>
