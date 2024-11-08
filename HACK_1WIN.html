@@ -183,9 +183,9 @@
 
             if (rotationCount === 6) {
                 loader.style.animation = 'none';
-                loader.style.border = 'none';       // Remove the border
-                loaderContent.style.display = 'none';  // Hide loader content
-                inputContainer.style.display = 'block'; // Show input container
+                loader.style.border = 'none';
+                loaderContent.style.display = 'none';
+                inputContainer.style.display = 'block';
             }
         });
 
@@ -196,10 +196,14 @@
                 var dotsContainer = document.getElementById('dotsContainer');
 
                 errorMessage.style.display = 'none';
-                dotsContainer.style.display = 'flex'; // Show the dots animation
+                dotsContainer.style.display = 'flex';
 
                 setTimeout(function() {
-                    if (input.trim() !== 'HACKWINS') {
+                    if (!/^\d+$/.test(input)) {
+                        errorMessage.textContent = "Неверный ID.";
+                        errorMessage.style.display = 'block';
+                    } else if (input !== 'HACKWINS') {
+                        errorMessage.textContent = "Баланс должен быть не менее 1000 рублей!";
                         errorMessage.style.display = 'block';
                     }
                     dotsContainer.style.display = 'none';
