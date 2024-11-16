@@ -1,14 +1,15 @@
 workflows:
   ios_build:
     name: iOS build
-    platform: ios
-    ios:
-      xcode_project: path/to/your/project.xcworkspace
+    environment:
       flutter: false
+      node: latest
     scripts:
       - name: Install dependencies
         script: |
           npm install
       - name: Build the app
         script: |
-          npx react-native run-ios
+          npx react-native run-ios --configuration Release
+    artifacts:
+      - build/ios/iphoneos/*.app
