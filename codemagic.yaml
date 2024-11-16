@@ -2,13 +2,14 @@ workflows:
   ios_build:
     name: iOS build
     environment:
-      groups:
-        - react-native
-      node: latest
+      node: 16  # Указываем версию Node.js
     scripts:
+      - name: Clear npm cache
+        script: |
+          npm cache clean --force
       - name: Install dependencies
         script: |
-          npm install
+          npm install --verbose  # Добавляем флаг verbose для вывода подробных логов
       - name: Build the app
         script: |
           npx react-native run-ios --configuration Release
