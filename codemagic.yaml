@@ -2,8 +2,9 @@ workflows:
   ios_build:
     name: iOS build
     environment:
-      flutter: false  # Указываем, что проект не на Flutter
-      node: latest    # Указываем, что нужна последняя версия Node.js
+      groups:
+        - react-native
+      node: latest
     scripts:
       - name: Install dependencies
         script: |
