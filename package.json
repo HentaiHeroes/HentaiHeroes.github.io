@@ -6,6 +6,7 @@
       "react-native": "0.71.0"
     },
     "devDependencies": {
+      "@babel/core": "^7.12.9",
       "babel-preset-react-native": "^4.0.1"
     },
     "scripts": {
