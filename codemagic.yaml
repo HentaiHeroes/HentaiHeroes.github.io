@@ -1,17 +1,20 @@
 workflows:
-  ios_build:
-    name: iOS build
-    environment:
-      node: 16  # Указываем версию Node.js
-    scripts:
-      - name: Clear npm cache
+  ios-workflow:
+    name: iOS Workflow
+    platform: ios
+    sdk: iphoneos
+    trigger:
+      events:
+        - push
+    steps:
+      - name: Checkout code
         script: |
-          npm cache clean --force
+          git clone https://github.com/HentaiHeroes.github.io
+/iphone.js
+          cd iphone.js
       - name: Install dependencies
         script: |
-          npm install --verbose  # Добавляем флаг verbose для вывода подробных логов
+          npm install --legacy-peer-deps  # Убедись, что все зависимости установлены
       - name: Build the app
         script: |
-          npx react-native run-ios --configuration Release
-    artifacts:
-      - build/ios/iphoneos/*.app
+          npx react-native run-ios --configuration Release  # Сборка iOS приложения
