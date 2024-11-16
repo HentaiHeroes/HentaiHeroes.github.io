@@ -1,7 +1,10 @@
 workflows:
-  ios:
+  ios_build:
     name: iOS build
     platform: ios
+    ios:
+      xcode_project: path/to/your/project.xcworkspace
+      flutter: false
     scripts:
       - name: Install dependencies
         script: |
